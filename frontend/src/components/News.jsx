@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
-//import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 const News = (props)=>{
@@ -43,9 +43,9 @@ const News = (props)=>{
 
 
     const fetchMoreData = async () => {   
-       // const url = `https://newsapirg/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
-//        const url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
-	        const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/in.json`
+       const url = `https://newsapirg/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
+    //    const url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+	        // const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/in.json`
 
 	    setPage(page+1) 
         let data = await fetch(url);

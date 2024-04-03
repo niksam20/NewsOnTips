@@ -5,7 +5,7 @@ services:
     container_name: backend_c
     command: npm start
     ports:
-      - '4000:4000'
+      - '3001:3001'
   frontend:
     build: ./frontend
     container_name: frontend_c
