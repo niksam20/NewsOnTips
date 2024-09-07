@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from './UserContext';
 
 const Login = () => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
+    const { setUserEmail } = useUser();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,6 +20,7 @@ const Login = () => {
             if(result.data === "Success"){
                 console.log("Login Success");
                 alert('Login successful!')
+                setUserEmail(email);
                 navigate('/home');
             }
             else{

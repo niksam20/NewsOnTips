@@ -19,6 +19,7 @@ function App() {
           <Route path="/register" element ={<Register/>} />
           <Route path="/login" element ={<Login/>} />
           <Route path="/home" element ={<Home/>} />
+          <Route path="/feed" element ={<News setProgress={setProgress} apiKey={apiKey} key="newsForYou" pageSize={pageSize} country="in" category="newsForYou"/>} />
           <Route path="/business" element ={<News setProgress={setProgress} apiKey={apiKey} key="business" pageSize={pageSize} country="in" category="business"/>} />
           <Route exact path="/entertainment" element = {<News setProgress={setProgress} apiKey={apiKey} key="entertainment" pageSize={pageSize} country="in" category="entertainment"/>}></Route> 
           <Route exact path="/general" element = {<News setProgress={setProgress} apiKey={apiKey} key="general" pageSize={pageSize} country="in" category="general"/>}></Route> 
