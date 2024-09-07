@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://ranaaryansh12:jXGKXC6kVXMuzkqW@cluster0.kln2bnp.mongodb.net/');
+mongoose.connect('mongodb+srv://sahilnarwalkumar01:NKAt7FJDy3gxccWc@cluster0.f42f14w.mongodb.net/');
 
 app.post('/register', (req, res)=>{
     // To post / insert data into database
@@ -16,7 +16,7 @@ app.post('/register', (req, res)=>{
     const {email, password} = req.body;
     FormDataModel.findOne({email: email})
     .then(user => {
-        if(user){
+        if(user){ 
             res.json("Already registered")
         }
         else{
@@ -48,6 +48,30 @@ app.post('/login', (req, res)=>{
         }
     })
 })
+
+app.post('/updateClickedNews', async (req, res) => {
+    try {
+        const { email, clickedNewsTitle } = req.body;
+
+        // Find the user's document based on their email address
+        const user = await FormDataModel.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Update the clicked news array in the user's document
+        user.clickedNews.push(clickedNewsTitle);
+
+        // Save the updated document back to the database
+        await user.save();
+
+        res.json({ message: 'Clicked news updated successfully' });
+    } catch (error) {
+        console.error('Error updating clicked news:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
 
 app.listen(3001, () => {
     console.log("Server listining on http://127.0.0.1:3001");

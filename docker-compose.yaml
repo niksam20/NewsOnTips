@@ -14,4 +14,59 @@ services:
       - "5173:5173"
     depends_on:
       - backend
-  
+  microservices_business:
+    build: ./microservices/business
+    container_name: business_c
+    command: npm start
+    ports:
+      - "3010:3010"
+    depends_on:
+      - backend
+  microservices_enterainment:
+    build: ./microservices/enterainment
+    container_name: enterainment_c
+    command: npm start
+    ports:
+      - "3011:3011"
+    depends_on:
+      - backend
+  microservices_general:
+    build: ./microservices/general
+    container_name: general_c
+    command: npm start
+    ports:
+      - "3016:3016"
+    depends_on:
+      - backend
+  microservices_health:
+    build: ./microservices/health
+    container_name: health_c
+    command: npm start
+    ports:
+      - "3012:3012"
+    depends_on:
+      - backend
+  microservices_science:
+    build: ./microservices/science
+    container_name: science_c
+    command: npm start
+    ports:
+      - "3013:3013"
+    depends_on:
+      - backend
+  microservices_sports:
+    build: ./microservices/sports
+    container_name: sports_c
+    command: npm start
+    ports:
+      - "3014:3014"
+    depends_on:
+      - backend
+  microservices_technology:
+    build: ./microservices/technology
+    container_name: technology_c
+    command: npm start
+    ports:
+      - "3015:3015"
+    depends_on:
+      - backend
