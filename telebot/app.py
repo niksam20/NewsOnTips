@@ -9,7 +9,7 @@ class NewsBot:
         self.bot = telebot.TeleBot(token, threaded=False)
         self.bot.set_update_listener(self._handle_messages)
         self.current_message = None
-        self.api_key = self._read_api_key('.apikey')
+        self.api_key = self._read_api_key('apikey')
         self.sent_articles = set()  # To keep track of sent article URLs
 
     def _handle_messages(self, messages):
@@ -90,7 +90,7 @@ class NewsBot:
 
 if __name__ == '__main__':
     try:
-        with open('.telegramToken', 'r') as f:
+        with open('telegramToken', 'r') as f:
             token = f.read().strip()
         if not token:
             raise ValueError("Telegram token file is empty")
