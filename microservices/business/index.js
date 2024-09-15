@@ -10,7 +10,7 @@ const PORT = 3010; // Or any other port you prefer
 app.use(cors());
 
 // Define your API key and other constants
-const apiKey = "f21bb4007a6e40cabd3fab47ddb30bd9";
+const apiKey = "75c2b4880b1244efb81476ef24a51067";
 
 // Define a route to handle requests for news data
 app.get('/news/:category', async (req, res) => {
@@ -18,12 +18,24 @@ app.get('/news/:category', async (req, res) => {
     const category = req.params.category;
     const { page, pageSize, country } = req.query;
 
+    
+
     // Make a request to the News API using axios
     const newsUrl = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    // const newsUrl = `https://newsapi.org/v2/top-headlines/sources?&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
     const response = await axios.get(newsUrl);
+    console.log(req.query)
+    console.log(page)
+    console.log(pageSize)
+    
+    console.log(response)
+
+    // Log the request parameters
+    console.log(req.query);
 
     // Send the response data back to the client
     res.json(response.data);
+
   } catch (error) {
     // Handle errors
     console.error('Error fetching news:', error.message);

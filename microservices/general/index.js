@@ -10,7 +10,7 @@ const PORT = 3016; // Or any other port you prefer
 app.use(cors());
 
 // Define your API key and other constants
-const apiKey = "f21bb4007a6e40cabd3fab47ddb30bd9";
+const apiKey = "d9fc5464da754543b7c0c02b01d89913";
 
 // Define a route to handle requests for news data
 app.get('/news/:category', async (req, res) => {
