@@ -1,1 +1,4 @@
+.gitignore
 node_modules/
+telebot/.apikey
+telebot/.telegraToken
