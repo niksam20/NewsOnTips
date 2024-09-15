@@ -29,7 +29,7 @@ const Home = () => {
         </div>
       )}
       <NavBar />
-      <News setProgress={setProgress} apiKey={apiKey} key={currentPage} pageSize={pageSize} country="in"/>
+      <News setProgress={setProgress} apiKey={apiKey} key={currentPage} pageSize={pageSize} country="us"/>
   </div>
   );
 }

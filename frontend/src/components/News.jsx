@@ -40,7 +40,7 @@ const News = (props)=>{
         // let expressUrl = '';
         // const { userEmail } = useUser();
         let expressUrl = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`; 
-        if(props.category == 'business'){
+        if(props.category == 'business'){ 
             expressUrl = `http://localhost:3010/news/${props.category}?page=${page + 1}&pageSize=${props.pageSize}&country=${props.country}`;
         }
         else if(props.category == 'enterainment'){
@@ -84,6 +84,7 @@ const News = (props)=>{
             
             // Update state with the fetched articles and total results
             setArticles(parsedData.articles);
+            // setArticles(parsedData.sources);
             setTotalResults(parsedData.totalResults);
       
             props.setProgress(100);
