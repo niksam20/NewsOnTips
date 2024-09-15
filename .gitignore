@@ -1,1 +1,3 @@
 node_modules
+/telebot/apikey
+/telebot/telegramToken
