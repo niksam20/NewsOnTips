@@ -1,3 +1,2 @@
-node_modules/
-telebot/.apikey
-telebot/.telegraToken
+/telebot/.telegramToken
+/telebot/.apikey
