@@ -7,7 +7,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import News from './News';
 function App() {
   const pageSize = 5;
-  const apiKey = "75c2b4880b1244efb81476ef24a51067"
+  const apiKey = import.meta.env.API_KEY;
   const [progress, setProgress] = useState(0)
   const currentPage = 1
   return (

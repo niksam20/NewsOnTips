@@ -2,13 +2,17 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const FormDataModel = require ('./models/FormData');
-
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://sahilnarwalkumar01:NKAt7FJDy3gxccWc@cluster0.f42f14w.mongodb.net/');
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.log(err));
 
 app.post('/register', (req, res)=>{
     // To post / insert data into database
